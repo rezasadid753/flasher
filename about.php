@@ -5,16 +5,6 @@ $page_title = "درباره فلشر"; include 'header.php';
 
 // Database connection
 include 'db_connection.php';
-
-// Validate access code
-$access_code = $_GET['access_code'];
-$table_name = mysqli_real_escape_string($conn, $access_code);
-$check_table_query = "SHOW TABLES LIKE '$table_name'";
-$result = $conn->query($check_table_query);
-if ($result->num_rows != 1) {
-    header("Location: login.php");
-    exit;
-}
 ?>
 
 <div style="direction: ltr; text-align: left;">
