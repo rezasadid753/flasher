@@ -73,4 +73,4 @@ Flasher is licensed under the MIT License. See the `LICENSE` file for details.
 
 For any inquiries or support, feel free to contact:
 * Email: contact@rezasadid.com, rezasadid753@gmail.com
-* Phone: +98 21 9130 2492
+* Phone: +1 (760) 536-4584 (Available for calls between 6 PM to 10 PM Tehran time, GMT+3:30)
