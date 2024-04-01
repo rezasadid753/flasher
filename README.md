@@ -71,6 +71,4 @@ Flasher is licensed under the MIT License. See the `LICENSE` file for details.
 
 ## Contact
 
-For any inquiries or support, feel free to contact:
-* Email: contact@rezasadid.com, rezasadid753@gmail.com
-* Phone: +1 (760) 536-4584 (Available for calls between 3 PM to 6 PM GMT)
+For any inquiries or support, feel free to contact via email at contact@rezasadid.com or rezasadid753@gmail.com.
