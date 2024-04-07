@@ -49,7 +49,7 @@ if ($status_0_result->num_rows == 3 && $status_1_result->num_rows == 4 && $statu
         }
     } else {
         // Step 3: Show error message
-        echo '<div class="info">شما حداقل نیاز به 10 فلش کارت دارید تا بتوانید از این بخش استفاده کنید.</div>';
+        echo '<div class="info">شما حداقل نیاز به 10 فلش کارت دارید تا بتوانید از این بخش استفاده کنید.</div><style>#nextButton{display: none;}</style>';
     }
 }
 
