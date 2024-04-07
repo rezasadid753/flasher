@@ -1073,7 +1073,7 @@ footer svg {
         transform: translateX(-50%);
         right: unset;
     }
-    
+
     .menupopup.showpopup {
         bottom: 60px;
     }
@@ -1105,13 +1105,12 @@ footer svg {
     }
 
     .pwa .installButton {
-        color: rgb(255 0 153);
-        background: rgb(255 0 153 / 15%);
+        display: none;
     }
 
     .pwa .installApp {
         display: block;
-        width: calc(100% - 140px);
+        width: calc(100% - 60px);
     }
 }
 
