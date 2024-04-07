@@ -7,14 +7,12 @@ $page_title = "درباره فلشر"; include 'header.php';
 include 'db_connection.php';
 ?>
 
-<div style="direction: ltr; text-align: left;">
-    <div style="font-size: 18px; color: #ff0099;">About Flasher</div>
-    This project is a web-based application designed for creating, managing, and reviewing flashcards. It serves as a tool for individuals seeking to enhance their learning experience through the use of flashcards.
-    <div style="font-size: 18px; color: #ff0099; margin-top: 10px;">Data Storage</div>
-    User data and flashcard information are stored in a MySQL database. Each user is assigned a unique access code upon registration, which serves as the name of their dedicated database table. Flashcards created by users are imported into their respective database tables for organization and accessibility.
-    <div style="font-size: 18px; color: #ff0099; margin-top: 10px;">Data Security Disclaimer</div>
-    It is important to note that this project does not implement robust security measures to protect user data. Therefore, there is no guarantee of the privacy or stability of the data stored within the system. Users are advised not to input any personal or sensitive information, including access codes or content within flashcards.
-</div>
+<div style="font-size: 18px; color: #ff0099;">درباره فلشر</div>
+این پروژه یک اپلیکیشن تحت وب است که برای ساخت، مدیریت و مرور کارت‌های آموزشی (flashcards) طراحی شده است. فلشر به عنوان ابزاری برای افرادی عمل می‌کند که به دنبال بهبود تجربه یادگیری خود از طریق استفاده از کارت‌های آموزشی هستند.
+<div style="font-size: 18px; color: #ff0099; margin-top: 10px;">ذخیره‌سازی داده</div>
+داده‌های کاربر و اطلاعات کارت‌های آموزشی در یک پایگاه داده MySQL ذخیره می‌شوند. به هر کاربر پس از ثبت‌نام، یک کد دسترسی منحصر‌به‌فرد اختصاص داده می‌شود که به عنوان نام جدول اختصاصی پایگاه داده او عمل می‌کند. کارت‌های آموزشی ایجاد شده توسط کاربران برای سازماندهی و دسترسی آسان به جداول پایگاه داده مربوطه آنها وارد می‌شوند.
+<div style="font-size: 18px; color: #ff0099; margin-top: 10px;">سلب مسئولیت امنیت داده</div>
+لازم به ذکر است که این پروژه برای محافظت از داده‌های کاربران، اقدامات امنیتی قدرتمندی را پیاده‌سازی نکرده است. بنابراین، هیچ تضمینی برای حفظ حریم خصوصی یا ثبات داده‌های ذخیره شده وجود ندارد. به کاربران توصیه می‌شود که هیچ اطلاعات شخصی یا حساسی را بعنوان کد دسترسی خود یا در محتوای کارت‌های آموزشی شان وارد نکنند.
 
 <!-- Footer -->
 </div>
