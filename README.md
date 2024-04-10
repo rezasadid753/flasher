@@ -1,17 +1,10 @@
-<div align="center">
-    <a href="https://github.com/rezasadid753/flasher"><img src="https://rezasadid.com/projects/flasher/favicon.svg" alt="Logo" width="80" height="80"></a>
-    <h3 align="center">Flasher</h3>
-    <p align="center">
-        A simple flashcards website to enhance your learning experience
-    </p>
-    <a href="https://rsdn.ir/g-fsh">View Demo</a>
-    ·
-    <a href="https://github.com/rezasadid753/flasher/issues">Report an Issue or Request a Feature</a>
-    ·
-    <a href="https://github.com/rezasadid753/flasher/pulls">Collaborate</a>
-</div>
+# Flasher
 
-<br>
+![Logo](https://rezasadid.com/projects/flasher/favicon.svg)
+
+A simple flashcards website to enhance your learning experience
+
+[View Demo](https://rsdn.ir/g-fsh) · [Report an Issue or Request a Feature](https://github.com/rezasadid753/flasher/issues) · [Collaborate](https://github.com/rezasadid753/flasher/pulls)
 
 ## About The Project
 
