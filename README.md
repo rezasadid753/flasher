@@ -33,16 +33,6 @@ To get started with Flasher, follow these steps:
 
 1. Clone the repository to your local machine.
 2. Update the db_connection.php file with your own database information.
-3. Create the necessary database tables using the following SQL code:
-
-```sql
-CREATE TABLE users (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL,
-    access_code VARCHAR(255) NOT NULL
-);
-```
 
 ## Logs
 
