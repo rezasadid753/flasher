@@ -1,9 +1,4 @@
 <?php
-
-// Header
-$page_title = "ایجاد فلش کارت"; 
-include 'header.php';
-
 // Database connection
 include 'db_connection.php';
 
@@ -17,6 +12,9 @@ if ($result->num_rows != 1) {
     exit;
 }
 
+// Header
+$page_title = "ایجاد فلش کارت"; 
+include 'header.php';
 ?>
 
 <form action="create_flashcard_process.php" method="POST" <?php if ($access_code === 'test') echo 'onsubmit="return false;"'; ?>>

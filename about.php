@@ -1,10 +1,6 @@
 <?php
-
 // Header
 $page_title = "درباره فلشر"; include 'header.php';
-
-// Database connection
-include 'db_connection.php';
 ?>
 
 <div style="font-size: 20px;color: #ff0099;text-align: right;width: 100%;border-bottom: 2px solid #ff0099;padding-bottom: 10px;">درباره فلشر</div>

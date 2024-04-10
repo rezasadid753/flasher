@@ -55,16 +55,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: list.php?access_code=$access_code");
             exit;
         } else {
-            echo '<div class="info">خطا در ویرایش فلش کارت: ' . $stmt->error . '</div>';
+            // Store error message
+            $executionError = '<div class="info">خطا در ویرایش فلش کارت: ' . $stmt->error . '</div>';
         }
     } else {
-        echo '<div class="info">فیلدها نمیتوانند خالی باشند</div>';
+        // Store error message
+        $validationError = '<div class="info">فیلدها نمیتوانند خالی باشند</div>';
     }
 }
 
 // Header
 $page_title = "ویرایش فلش کارت"; include 'header.php';
 
+// Display error message if it exists
+if (!empty($executionError)) {
+    echo $executionError;
+}
+
+// Display error message if it exists
+if (!empty($validationError)) {
+    echo $validationError;
+}
 ?>
 
     <form method="post" <?php if ($_GET['access_code'] === 'test') echo 'onsubmit="return false;"'; ?>>

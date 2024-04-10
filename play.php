@@ -1,8 +1,4 @@
 <?php
-
-// Header
-$page_title = "پخش فلش کارت ها"; include 'header.php';
-
 // Database connection
 include 'db_connection.php';
 
@@ -15,6 +11,9 @@ if ($result->num_rows != 1) {
     header("Location: login.php");
     exit;
 }
+
+// Header
+$page_title = "پخش فلش کارت ها"; include 'header.php';
 
 // Query to select flashcards
 $flashcards = [];

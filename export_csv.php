@@ -1,16 +1,21 @@
 <?php
-
 // Database connection
 include 'db_connection.php';
 
-// Check if access code is provided
-if (!isset($_GET['access_code'])) {
-    die('کد دسترسی ارائه نشده است.');
+// Validate access code
+$access_code = $_GET['access_code'];
+$table_name = mysqli_real_escape_string($conn, $access_code);
+$check_table_query = "SHOW TABLES LIKE '$table_name'";
+$result = $conn->query($check_table_query);
+if ($result->num_rows != 1) {
+    header("Location: login.php");
+    exit;
 }
 
-$access_code = $_GET['access_code'];
+// Set the table name the same as the access code
 $table = $access_code;
 
+// Set the filename
 $filename = "export_" . $table . "_flasher_export.csv";
 
 // Query to fetch data from the table
@@ -39,7 +44,7 @@ if ($result) {
 
     // Close the output stream
     fclose($output);
-    
+
     // Set HTTP headers for CSV download
     header("Content-type: text/csv; charset=UTF-8");
     header("Content-Disposition: attachment; filename=$filename");
@@ -51,6 +56,6 @@ if ($result) {
     echo 'خطا در دریافت اطلاعات از پایگاه داده.';
 }
 
+// Close database connection
 $conn->close();
-
 ?>

@@ -1,8 +1,4 @@
 <?php
-
-// Header
-$page_title = "همه فلش کارت ها"; include 'header.php';
-
 // Database connection
 include 'db_connection.php';
 
@@ -16,6 +12,29 @@ if ($result->num_rows != 1) {
     exit;
 }
 
+// Handle flashcard deletion if delete_flashcard parameter is present in URL
+if (isset($_GET['delete_flashcard'])) {
+    $flashcardIdToDelete = $_GET['delete_flashcard'];
+    $deleteQuery = "DELETE FROM $access_code WHERE id = ?";
+    $stmt = $conn->prepare($deleteQuery);
+    $stmt->bind_param("i", $flashcardIdToDelete);
+    if ($stmt->execute()) {
+        // Redirect back to the list page after deletion
+        header("Location: list.php?access_code=$access_code");
+        exit;
+    } else {
+        // Store error message
+        $deletionError = '<div class="info">خطا در حذف فلش کارت: ' . $conn->error . '</div>';
+    }
+}
+
+// Header
+$page_title = "همه فلش کارت ها"; include 'header.php';
+
+// Display error message if it exists
+if (!empty($deletionError)) {
+    echo $deletionError;
+}
 ?>
 
 <script>
@@ -26,14 +45,14 @@ function removeURLParameters(url, parametersToRemove) {
     if (urlParts.length >= 2) {
         var prefix = encodeURIComponent(parametersToRemove) + '=';
         var params = urlParts[1].split(/[&;]/g);
-        
+
         // Iterate through parameters and remove the specified ones
-        for (var i = params.length; i-- > 0;) {    
+        for (var i = params.length; i-- > 0;) {
             if (params[i].lastIndexOf(prefix, 0) !== -1) {
                 params.splice(i, 1);
             }
         }
-        
+
         // Reconstruct the URL without the removed parameters
         url = urlParts[0] + (params.length > 0 ? '?' + params.join('&') : '');
     }
@@ -73,26 +92,8 @@ redirectIfNecessary();
 <div class="cards">
 
 <?php
-
 // Check if access code exists in URL
 if (isset($_GET['access_code'])) {
-    $access_code = $_GET['access_code'];
-
-    // Handle flashcard deletion if delete_flashcard parameter is present in URL
-    if (isset($_GET['delete_flashcard'])) {
-        $flashcardIdToDelete = $_GET['delete_flashcard'];
-        $deleteQuery = "DELETE FROM $access_code WHERE id = ?";
-        $stmt = $conn->prepare($deleteQuery);
-        $stmt->bind_param("i", $flashcardIdToDelete);
-        if ($stmt->execute()) {
-            // Redirect back to the list page after deletion
-            header("Location: list.php?access_code=$access_code");
-            exit;
-        } else {
-            echo '<div class="info">خطا در حذف فلش کارت: ' . $conn->error . '</div>';
-        }
-    }
-
     // Handle updating flashcard level
     if (isset($_GET['update_level'])) {
         $flashcardIdToUpdate = $_GET['update_level'];
@@ -205,14 +206,14 @@ if (isset($_GET['access_code'])) {
         window.location.href = 'list.php?access_code=<?php echo $access_code; ?>&sort=random';
     });
 
-// Event listener for flashcard level change
-document.querySelectorAll('.levelchanger').forEach(function(select) {
-    select.addEventListener('change', function() {
-        var flashcardId = this.getAttribute('data-flashcard-id');
-        var level = this.value;
-        window.location.href = 'list.php?access_code=<?php echo $access_code; ?>&update_level=' + flashcardId + '&level=' + level;
+    // Event listener for flashcard level change
+    document.querySelectorAll('.levelchanger').forEach(function(select) {
+        select.addEventListener('change', function() {
+            var flashcardId = this.getAttribute('data-flashcard-id');
+            var level = this.value;
+            window.location.href = 'list.php?access_code=<?php echo $access_code; ?>&update_level=' + flashcardId + '&level=' + level;
+        });
     });
-});
 
     // Event listener for deleting flashcards
     document.querySelectorAll('.delete').forEach(function(button) {

@@ -1,8 +1,4 @@
 <?php
-
-// Header
-$page_title = "ورود"; include 'header.php';
-
 // Database connection
 include 'db_connection.php';
 
@@ -16,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Check connection
     if ($conn->connect_error) {
-        die('<div class="info">ارتباط با پایگاه داده ناموفق بود: ' . $conn->connect_error . '</div>');
+        die('ارتباط با پایگاه داده ناموفق بود: ' . $conn->connect_error);
     }
 
     // Check if the user's table exists
@@ -28,16 +24,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: list.php?access_code=$access_code");
         exit;
     } else {
-        // Table does not exist, display error message
-        echo '<div class="info">کد دسترسی وارد شده یافت نشد</div>';
+        // Table does not exist, store error message
+        $accessError = '<div class="info">کد دسترسی وارد شده یافت نشد</div>';
     }
 
     // Close database connection
     $conn->close();
 }
 
+// Header
+$page_title = "ورود"; include 'header.php';
+
+// Display error message if it exists
+if (!empty($accessError)) {
+    echo $accessError;
+}
+
 // Footer
 echo '</div>';
 include 'footer.php';
-
 ?>

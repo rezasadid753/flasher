@@ -13,9 +13,11 @@
         var networkStatus = document.querySelector('.network');
         retryButton.addEventListener('click', function() {
             if (navigator.onLine) {
-                window.location.href = 'login.php'; // Redirect to login page if online
+                // Redirect to login page if online
+                window.location.href = 'login.php';
             } else {
-                networkStatus.classList.add('showmsg'); // Show message if offline
+                // Show message if offline
+                networkStatus.classList.add('showmsg');
             }
         });
     });

@@ -2,13 +2,15 @@
 // Include database connection
 include 'db_connection.php';
 
-// Check if access code is provided
-if (!isset($_GET['access_code'])) {
-    echo '<div class="info">کد دسترسی ارائه نشده است.</div>';
+// Validate access code
+$access_code = $_GET['access_code'];
+$table_name = mysqli_real_escape_string($conn, $access_code);
+$check_table_query = "SHOW TABLES LIKE '$table_name'";
+$result = $conn->query($check_table_query);
+if ($result->num_rows != 1) {
+    header("Location: login.php");
     exit;
 }
-
-$accessCode = $_GET['access_code'];
 
 // Check if proceed button is clicked
 if (isset($_POST['proceed'])) {
@@ -21,14 +23,19 @@ if (isset($_POST['proceed'])) {
         header("Location: list.php?access_code=$accessCode");
         exit;
     } else {
-        // Error occurred
-        echo '<div class="info">خطا در حذف تمامی فلش کارت ها: ' . mysqli_error($conn) . '</div>';
+        // Store error message
+        $deletionError = '<div class="info">خطا در حذف تمامی فلش کارت ها: ' . mysqli_error($conn) . '</div>';
     }
 }
-?>
 
-<!-- Header -->
-<?php $page_title = "پاکسازی"; include 'header.php'; ?>
+// Header
+$page_title = "ایجاد فلش کارت جدید"; include 'header.php';
+
+// Display error message if it exists
+if (!empty($deletionError)) {
+    echo $deletionError;
+}
+?>
 
 <div class="question">از حذف تمامی فلش کارت های خود مطمئنید؟</div>
 <form action="delete_all_flashcards.php?access_code=<?php echo $accessCode; ?>" method="post" class="column reset" <?php if ($_GET['access_code'] === 'test') echo 'onsubmit="return false;"'; ?>>

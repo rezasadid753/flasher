@@ -1,10 +1,9 @@
 <?php
+// Database connection
+include 'db_connection.php';
 
 // Header
 $page_title = "ثبت نام"; include 'header.php';
-
-// Database connection
-include 'db_connection.php';
 
 // Set UTF-8 Persian Collation for the connection
 $conn->set_charset("utf8mb4");
@@ -15,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST['name'];
     $email = $_POST['email'];
     $access_code = $_POST['access_code'];
-    
+
     // Check if access code already exists
     $checkAccessCodeSQL = "SELECT * FROM users WHERE access_code = ?";
     $stmt = $conn->prepare($checkAccessCodeSQL);
@@ -63,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo '<div class="info">خطایی در ایجاد جدول کاربران رخ داد: ' . $conn->error . '</div>';
         }
     }
-    
+
     // Close database connection
     $conn->close();
 }
@@ -71,5 +70,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 // Footer
 echo '</div>';
 include 'footer.php';
-
 ?>
