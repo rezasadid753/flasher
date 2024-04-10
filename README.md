@@ -1,7 +1,5 @@
 # Flasher
 
-![Logo](https://rezasadid.com/projects/flasher/favicon.svg)
-
 A simple flashcards website to enhance your learning experience
 
 [View Demo](https://rsdn.ir/g-fsh) · [Report an Issue or Request a Feature](https://github.com/rezasadid753/flasher/issues) · [Collaborate](https://github.com/rezasadid753/flasher/pulls)
