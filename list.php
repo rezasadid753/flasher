@@ -150,15 +150,15 @@ if (isset($_GET['access_code'])) {
                             </div>
                         </div>
                         <div class='dictionarylistpopup'>
-                            <a href='https://abadis.ir/entofa/$content' class='abadis'>Abadis</a>
-                            <a href='https://www.merriam-webster.com/dictionary/$content' class='webster'>Merriam-Webster</a>
+                            <a href='https://abadis.ir/entofa/$content' class='abadis' target='_blank'>Abadis</a>
+                            <a href='https://www.merriam-webster.com/dictionary/$content' class='webster' target='_blank'>Merriam-Webster</a>
                         </div>
                         <div class='nav'>
                         <button class='"; echo ($_GET['access_code'] === 'test') ? "limited" : "delete"; echo "' data-flashcard-id='{$row['id']}'>
                             <svg width='5' height='6' viewBox='0 0 5 6' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M4.75 0.999996H3.97501C3.85539 0.418395 3.34377 0.00075 2.75 0H2.24999C1.65621 0.00075 1.1446 0.418395 1.02499 0.999996H0.249996C0.111926 0.999996 0 1.11192 0 1.24999C0 1.38806 0.111926 1.5 0.249996 1.5H0.499993V4.75C0.500825 5.44001 1.05999 5.99918 1.75 6H3.25C3.94001 5.99918 4.49917 5.44001 4.50001 4.75V1.5H4.75C4.88807 1.5 5 1.38807 5 1.25C5 1.11193 4.88807 0.999996 4.75 0.999996ZM2.25 4.25C2.25 4.38807 2.13808 4.5 2.00001 4.5C1.86192 4.5 1.75 4.38807 1.75 4.25V2.75C1.75 2.61193 1.86192 2.50001 1.99999 2.50001C2.13807 2.50001 2.24999 2.61193 2.24999 2.75L2.25 4.25ZM3.25 4.25C3.25 4.38807 3.13808 4.5 3 4.5C2.86193 4.5 2.75001 4.38807 2.75001 4.25V2.75C2.75001 2.61193 2.86193 2.50001 3 2.50001C3.13808 2.50001 3.25 2.61193 3.25 2.75V4.25ZM1.54275 0.999996C1.64909 0.70057 1.93226 0.500379 2.25 0.499992H2.75001C3.06775 0.500379 3.35092 0.70057 3.45726 0.999996H1.54275Z' fill='white'/></svg>
                         </button>
                         <div class='vline'></div>
-                        <a href='edit_flashcard.php?flashcard_id={$row['id']}&access_code=$access_code' class='edit'>
+                        <a href='edit_flashcard.php?flashcard_id={$row['id']}&access_code=$access_code' class='edit' target='_blank'>
                             <svg width='6' height='6' viewBox='0 0 6 6' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M0.289399 4.79475C0.104154 4.97994 5.59412e-05 5.23112 0 5.49306V6H0.506941C0.768876 5.99994 1.02006 5.89585 1.20525 5.7106L4.5 2.41585L3.58415 1.5L0.289399 4.79475Z' fill='white'/><path d='M5.78333 0.21667C5.71471 0.147982 5.63323 0.0934915 5.54354 0.0563137C5.45385 0.0191359 5.35772 0 5.26063 0C5.16354 0 5.0674 0.0191359 4.97771 0.0563137C4.88802 0.0934915 4.80654 0.147982 4.73792 0.21667L3.75 1.20488L4.79513 2.25L5.78333 1.26208C5.85202 1.19346 5.90651 1.11198 5.94369 1.02229C5.98086 0.9326 6 0.836463 6 0.739374C6 0.642284 5.98086 0.546147 5.94369 0.456458C5.90651 0.366769 5.85202 0.285287 5.78333 0.21667Z' fill='white'/></svg>
                         </a>
                         <div class='vline'></div>
