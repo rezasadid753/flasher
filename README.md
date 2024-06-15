@@ -24,6 +24,7 @@ To get started with Flasher, follow these steps:
 
 1. Clone the repository to your local machine.
 2. Update the db_connection.php file with your own database information.
+3. Update the db_connection.php file with your own database information. This file is located in the project directory.
 
 ## Logs
 
