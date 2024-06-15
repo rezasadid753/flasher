@@ -35,6 +35,9 @@ $page_title = "همه فلش کارت ها"; include 'header.php';
 if (!empty($deletionError)) {
     echo $deletionError;
 }
+
+// Limited accounts
+$limited_accounts = ['idioms', 'idiomsadv'];
 ?>
 
 <script>
@@ -154,7 +157,7 @@ if (isset($_GET['access_code'])) {
                             <a href='https://www.merriam-webster.com/dictionary/$content' class='webster' target='_blank'>Merriam-Webster</a>
                         </div>
                         <div class='nav'>
-                        <button class='"; echo ($_GET['access_code'] === 'test') ? "limited" : "delete"; echo "' data-flashcard-id='{$row['id']}'>
+                        <button class='"; echo (in_array($_GET['access_code'], $limited_accounts)) ? "limited" : "delete"; echo "' data-flashcard-id='{$row['id']}'>
                             <svg width='5' height='6' viewBox='0 0 5 6' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M4.75 0.999996H3.97501C3.85539 0.418395 3.34377 0.00075 2.75 0H2.24999C1.65621 0.00075 1.1446 0.418395 1.02499 0.999996H0.249996C0.111926 0.999996 0 1.11192 0 1.24999C0 1.38806 0.111926 1.5 0.249996 1.5H0.499993V4.75C0.500825 5.44001 1.05999 5.99918 1.75 6H3.25C3.94001 5.99918 4.49917 5.44001 4.50001 4.75V1.5H4.75C4.88807 1.5 5 1.38807 5 1.25C5 1.11193 4.88807 0.999996 4.75 0.999996ZM2.25 4.25C2.25 4.38807 2.13808 4.5 2.00001 4.5C1.86192 4.5 1.75 4.38807 1.75 4.25V2.75C1.75 2.61193 1.86192 2.50001 1.99999 2.50001C2.13807 2.50001 2.24999 2.61193 2.24999 2.75L2.25 4.25ZM3.25 4.25C3.25 4.38807 3.13808 4.5 3 4.5C2.86193 4.5 2.75001 4.38807 2.75001 4.25V2.75C2.75001 2.61193 2.86193 2.50001 3 2.50001C3.13808 2.50001 3.25 2.61193 3.25 2.75V4.25ZM1.54275 0.999996C1.64909 0.70057 1.93226 0.500379 2.25 0.499992H2.75001C3.06775 0.500379 3.35092 0.70057 3.45726 0.999996H1.54275Z' fill='white'/></svg>
                         </button>
                         <div class='vline'></div>
@@ -166,10 +169,10 @@ if (isset($_GET['access_code'])) {
                             <svg width='5' height='6' viewBox='0 0 5 6' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M2.04547 4.375C2.04576 4.05661 2.13107 3.74532 2.29081 3.47981C2.45055 3.21429 2.67768 3.00625 2.94399 2.88151C3.2103 2.75677 3.50406 2.72083 3.78878 2.77817C4.0735 2.8355 4.33663 2.98357 4.5455 3.204V0.75C4.5455 0.551088 4.47366 0.360322 4.3458 0.21967C4.21793 0.0790176 4.04451 0 3.86367 0H1.13637C0.8351 0.000396964 0.546268 0.13222 0.333235 0.366555C0.120202 0.600889 0.00036088 0.918601 0 1.25V4.75C0.00036088 5.0814 0.120202 5.39911 0.333235 5.63345C0.546268 5.86778 0.8351 5.9996 1.13637 6H3.52276C3.13096 6 2.75521 5.82879 2.47816 5.52405C2.20112 5.2193 2.04547 4.80598 2.04547 4.375ZM1.13637 1.75C1.13637 1.6837 1.16032 1.62011 1.20294 1.57322C1.24556 1.52634 1.30337 1.5 1.36365 1.5H3.18185C3.24213 1.5 3.29993 1.52634 3.34256 1.57322C3.38518 1.62011 3.40912 1.6837 3.40912 1.75C3.40912 1.8163 3.38518 1.87989 3.34256 1.92678C3.29993 1.97366 3.24213 2 3.18185 2H1.36365C1.30337 2 1.24556 1.97366 1.20294 1.92678C1.16032 1.87989 1.13637 1.8163 1.13637 1.75ZM4.93346 5.92675C4.89084 5.97362 4.83304 5.99995 4.77277 5.99995C4.71251 5.99995 4.65471 5.97362 4.61209 5.92675L4.06504 5.325C3.90303 5.43874 3.71495 5.49944 3.52276 5.5C3.32048 5.5 3.12275 5.43402 2.95456 5.3104C2.78637 5.18679 2.65528 5.01109 2.57788 4.80552C2.50047 4.59995 2.48021 4.37375 2.51968 4.15552C2.55914 3.93729 2.65654 3.73684 2.79958 3.5795C2.94261 3.42217 3.12484 3.31502 3.32324 3.27162C3.52163 3.22821 3.72727 3.25049 3.91415 3.33564C4.10103 3.42078 4.26076 3.56498 4.37314 3.74998C4.48552 3.93499 4.5455 4.1525 4.5455 4.375C4.54499 4.58641 4.48981 4.79329 4.38641 4.9715L4.93346 5.57325C4.97606 5.62013 5 5.68371 5 5.75C5 5.81629 4.97606 5.87987 4.93346 5.92675Z' fill='white'/></svg>
                         </button>
                         </div>
-                        <select class='flashcard-level "; echo ($_GET['access_code'] === 'test') ? "limited" : "levelchanger"; echo "' data-flashcard-id='{$row['id']}' data-access-code='$access_code'>
-                            <option "; echo ($_GET['access_code'] === 'test') ? "style='display: none;' " : ""; echo "value='0'".($level == 0 ? ' selected' : '').">آسان</option>
-                            <option "; echo ($_GET['access_code'] === 'test') ? "style='display: none;' " : ""; echo "value='1'".($level == 1 ? ' selected' : '').">متوسط</option>
-                            <option "; echo ($_GET['access_code'] === 'test') ? "style='display: none;' " : ""; echo "value='2'".($level == 2 ? ' selected' : '').">دشوار</option>
+                        <select class='flashcard-level "; echo (in_array($_GET['access_code'], $limited_accounts)) ? "limited" : "levelchanger"; echo "' data-flashcard-id='{$row['id']}' data-access-code='$access_code'>
+                            <option "; echo (in_array($_GET['access_code'], $limited_accounts)) ? "style='display: none;' " : ""; echo "value='0'".($level == 0 ? ' selected' : '').">آسان</option>
+                            <option "; echo (in_array($_GET['access_code'], $limited_accounts)) ? "style='display: none;' " : ""; echo "value='1'".($level == 1 ? ' selected' : '').">متوسط</option>
+                            <option "; echo (in_array($_GET['access_code'], $limited_accounts)) ? "style='display: none;' " : ""; echo "value='2'".($level == 2 ? ' selected' : '').">دشوار</option>
                         </select>
                     </div>
                 </div></div>";
@@ -189,39 +192,54 @@ if (isset($_GET['access_code'])) {
 <div class="line"></div>
 <div class="column data">
     <a href="export_csv.php?access_code=<?php echo $access_code; ?>" class="button secondary">برون ریزی</a>
-    <form id="csvForm" method="post" enctype="multipart/form-data" class="<?php echo ($_GET['access_code'] === 'test') ? "limited" : "form"; ?>" <?php if ($_GET['access_code'] === 'test') echo 'onsubmit="return false;"'; ?>><input type="file" id="csvFileInput" accept=".csv" style="display: none;"><button type="button" id="importButton" class="button secondary">درون ریزی</button></form>
+    <form id="csvForm" method="post" enctype="multipart/form-data" class="<?php echo (in_array($_GET['access_code'], $limited_accounts)) ? "limited" : "form"; ?>" <?php if (in_array($_GET['access_code'], $limited_accounts)) echo 'onsubmit="return false;"'; ?>><input type="file" id="csvFileInput" accept=".csv" style="display: none;"><button type="button" id="importButton" class="button secondary">درون ریزی</button></form>
     <button id="deleteAllButton" class="button secondary">
         <svg width="10" height="12" viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.50001 1.99999H7.95001C7.71079 0.836789 6.68755 0.0015 5.49999 0H4.49998C3.31243 0.0015 2.28919 0.836789 2.04999 1.99999H0.499993C0.223852 1.99999 0 2.22384 0 2.49998C0 2.77612 0.223852 3 0.499993 3H0.999986V9.49999C1.00165 10.88 2.11997 11.9984 3.5 12H6.5C7.88003 11.9984 8.99835 10.88 9.00001 9.49999V3H9.50001C9.77615 3 10 2.77615 10 2.50001C10 2.22387 9.77615 1.99999 9.50001 1.99999ZM4.50001 8.50001C4.50001 8.77615 4.27615 9 4.00001 9C3.72385 9 3.5 8.77615 3.5 8.50001V5.50001C3.5 5.22387 3.72385 5.00002 3.99999 5.00002C4.27613 5.00002 4.49998 5.22387 4.49998 5.50001L4.50001 8.50001ZM6.5 8.50001C6.5 8.77615 6.27615 9 6.00001 9C5.72387 9 5.50002 8.77615 5.50002 8.50001V5.50001C5.50002 5.22387 5.72387 5.00002 6.00001 5.00002C6.27615 5.00002 6.5 5.22387 6.5 5.50001V8.50001ZM3.0855 1.99999C3.29818 1.40114 3.86452 1.00076 4.50001 0.999984H5.50002C6.1355 1.00076 6.70185 1.40114 6.91452 1.99999H3.0855Z" fill="#FF0099"/></svg>
     </button>
 </div>
-
 <script>
+    // Function to get access_code from URL query parameters
+    function getAccessCode() {
+        var urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get('access_code');
+    }
+
     // Event listener for alphabetical sorting button
     document.getElementById('alphabeticalSort').addEventListener('click', function() {
-        window.location.href = 'list.php?access_code=<?php echo $access_code; ?>&sort=alphabetical';
+        var accessCode = getAccessCode();
+        if (accessCode) {
+            window.location.href = 'list.php?access_code=' + accessCode + '&sort=alphabetical';
+        }
     });
 
     // Event listener for random sorting button
     document.getElementById('randomSort').addEventListener('click', function() {
-        window.location.href = 'list.php?access_code=<?php echo $access_code; ?>&sort=random';
+        var accessCode = getAccessCode();
+        if (accessCode) {
+            window.location.href = 'list.php?access_code=' + accessCode + '&sort=random';
+        }
     });
 
     // Event listener for flashcard level change
     document.querySelectorAll('.levelchanger').forEach(function(select) {
         select.addEventListener('change', function() {
+            var accessCode = getAccessCode();
             var flashcardId = this.getAttribute('data-flashcard-id');
             var level = this.value;
-            window.location.href = 'list.php?access_code=<?php echo $access_code; ?>&update_level=' + flashcardId + '&level=' + level;
+            if (accessCode) {
+                window.location.href = 'list.php?access_code=' + accessCode + '&update_level=' + flashcardId + '&level=' + level;
+            }
         });
     });
 
     // Event listener for deleting flashcards
     document.querySelectorAll('.delete').forEach(function(button) {
         button.addEventListener('click', function() {
+            var accessCode = getAccessCode();
             var flashcardId = this.getAttribute('data-flashcard-id');
             var confirmation = confirm('از حذف این فلش کارت مطمئن هستید؟');
-            if (confirmation) {
-                window.location.href = 'list.php?access_code=<?php echo $access_code; ?>&delete_flashcard=' + flashcardId;
+            if (confirmation && accessCode) {
+                window.location.href = 'list.php?access_code=' + accessCode + '&delete_flashcard=' + flashcardId;
             }
         });
     });
@@ -252,11 +270,14 @@ if (isset($_GET['access_code'])) {
     document.getElementById('importButton').addEventListener('click', function() {
         document.getElementById('csvFileInput').click();
     });
+
     document.getElementById('csvFileInput').addEventListener('change', function() {
         var file = this.files[0];
         var formData = new FormData();
         formData.append('csv_file', file);
+
         var xhr = new XMLHttpRequest();
+        var accessCode = getAccessCode();
         xhr.onload = function() {
             if (xhr.status === 200) {
                 window.location.reload();
@@ -264,15 +285,16 @@ if (isset($_GET['access_code'])) {
                 alert('خطایی حین درون ریزی داده ها رخ داد.');
             }
         };
-        xhr.open('POST', 'import_csv.php', true);
+        xhr.open('POST', 'import_csv.php?access_code=' + accessCode, true);
         xhr.send(formData);
     });
 
     // Redirect to bulk deletion page
     document.getElementById('deleteAllButton').addEventListener('click', function() {
-        var urlParams = new URLSearchParams(window.location.search);
-        var accessCode = urlParams.get('access_code');
-        window.location.href = 'delete_all_flashcards.php?access_code=' + accessCode;
+        var accessCode = getAccessCode();
+        if (accessCode) {
+            window.location.href = 'delete_all_flashcards.php?access_code=' + accessCode;
+        }
     });
 </script>
 
