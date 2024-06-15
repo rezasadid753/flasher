@@ -15,12 +15,12 @@ if ($result->num_rows != 1) {
 // Check if proceed button is clicked
 if (isset($_POST['proceed'])) {
     // Perform deletion query
-    $query = "DELETE FROM $accessCode"; // Table name is the access code
+    $query = "DELETE FROM $table_name"; // Use $table_name instead of $accessCode
     $result = mysqli_query($conn, $query);
 
     if ($result) {
         // Deletion successful, redirect to list page
-        header("Location: list.php?access_code=$accessCode");
+        header("Location: list.php?access_code=$access_code");
         exit;
     } else {
         // Store error message
@@ -35,11 +35,14 @@ $page_title = "ایجاد فلش کارت جدید"; include 'header.php';
 if (!empty($deletionError)) {
     echo $deletionError;
 }
+
+// Limited accounts
+$limited_accounts = ['idioms', 'idiomsadv'];
 ?>
 
 <div class="question">از حذف تمامی فلش کارت های خود مطمئنید؟</div>
-<form action="delete_all_flashcards.php?access_code=<?php echo $accessCode; ?>" method="post" class="column reset" <?php if ($_GET['access_code'] === 'test') echo 'onsubmit="return false;"'; ?>>
-    <button type="submit" name="proceed" class="button <?php if ($_GET['access_code'] === 'test') echo "limited"; ?>">ادامه</button>
+<form action="delete_all_flashcards.php?access_code=<?php echo $access_code; ?>" method="post" class="column reset" <?php if (in_array($_GET['access_code'], $limited_accounts)) echo 'onsubmit="return false;"'; ?>>
+    <button type="submit" name="proceed" class="button <?php if (in_array($_GET['access_code'], $limited_accounts)) echo "limited"; ?>">ادامه</button>
     <button type="button" id="cancel" class="button secondary">لغو</button>
 </form>
 
