@@ -748,6 +748,7 @@ select {
 .pshowmore.pholder .pcontent::after {
     max-width: 100px;
     margin-left: 10px;
+    margin-right: -5px;
     opacity: 1;
 }
 
@@ -788,10 +789,13 @@ select {
     border-radius: 20px;
     transition: all 0.2s;
     cursor: pointer;
+    overflow: hidden;
+    position: relative;
 }
 
 .pholder.pshowmore {
     box-shadow: 0 0 0 0px rgb(255 0 153 / 15%), inset 0 0 0 0px white, inset 0 0 0 800px rgb(255 0 153 / 15%);
+    padding-bottom: 50px;
 }
 
 .pholder::before {
@@ -804,6 +808,39 @@ select {
     border-radius: 5px;
     width: auto;
     background: #ffd9f0;
+}
+
+.pholder .nav {
+    position: absolute;
+    bottom: -30px;
+    background: rgb(255 0 153 / 30%);
+    width: 65px;
+    transition: all 0.2s;
+    transition-delay: 0s;
+}
+
+.pholder.pshowmore .nav {
+    bottom: 20px;
+    transition-delay: 0.1s;
+}
+
+.pholder .dictionarylistpopup {
+    position: absolute;
+    top: 0px;
+    height: calc(100% - 55px);
+    width: calc(100% - 30px);
+    border-radius: 0;
+    margin: 0;
+    padding: 30px;
+    background: transparent;
+    backdrop-filter: blur(7px);
+}
+
+.pholder .dictionarylistpopup a {
+    height: 40px;
+    border-radius: 20px;
+    background: #ff0099;
+    color: white;
 }
 
 .pcontent {
