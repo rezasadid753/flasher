@@ -95,11 +95,11 @@ INSERT INTO `users` VALUES (1,'Flasher','contact@rezasadid.com','idioms','1999-1
 UNLOCK TABLES;
 
 --
--- Dumping events for database 'rezasadi_test'
+-- Dumping events for database 'flasher_user'
 --
 
 --
--- Dumping routines for database 'rezasadi_test'
+-- Dumping routines for database 'flasher_user'
 --
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
