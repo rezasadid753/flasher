@@ -82,6 +82,19 @@ $conn->close();
 <div class="pholder <?php echo $index === 0 ? 'first-slide' : ''; ?> <?php echo $index === count($flashcards) - 1 ? 'last-slide' : ''; ?> <?php echo $flashcard['status'] === '2' ? 'hard' : ($flashcard['status'] === '1' ? 'normal' : 'easy'); ?>">
     <div class="pcontent switch"><?php echo $flashcard['content']; ?></div>
     <div class="phint switch"><?php echo $flashcard['hint']; ?></div>
+    <div class='dictionarylistpopup'>
+        <a href="https://abadis.ir/entofa/<?php echo $flashcard['content']; ?>" class="abadis" target="_blank">Abadis</a>
+        <a href="https://www.merriam-webster.com/dictionary/<?php echo $flashcard['content']; ?>" class="webster" target="_blank">Merriam-Webster</a>
+    </div>
+    <div class="nav">
+        <a href="edit_flashcard.php?flashcard_id=<?php echo $flashcard['id'] ?>&access_code=<?php echo $access_code; ?>" class="edit" target="_blank">
+            <svg width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.289399 4.79475C0.104154 4.97994 5.59412e-05 5.23112 0 5.49306V6H0.506941C0.768876 5.99994 1.02006 5.89585 1.20525 5.7106L4.5 2.41585L3.58415 1.5L0.289399 4.79475Z" fill="white"/><path d="M5.78333 0.21667C5.71471 0.147982 5.63323 0.0934915 5.54354 0.0563137C5.45385 0.0191359 5.35772 0 5.26063 0C5.16354 0 5.0674 0.0191359 4.97771 0.0563137C4.88802 0.0934915 4.80654 0.147982 4.73792 0.21667L3.75 1.20488L4.79513 2.25L5.78333 1.26208C5.85202 1.19346 5.90651 1.11198 5.94369 1.02229C5.98086 0.9326 6 0.836463 6 0.739374C6 0.642284 5.98086 0.546147 5.94369 0.456458C5.90651 0.366769 5.85202 0.285287 5.78333 0.21667Z" fill="white"/></svg>
+        </a>
+        <div class="vline"></div>
+        <button class="dictionarypopup">
+            <svg width="5" height="6" viewBox="0 0 5 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.04547 4.375C2.04576 4.05661 2.13107 3.74532 2.29081 3.47981C2.45055 3.21429 2.67768 3.00625 2.94399 2.88151C3.2103 2.75677 3.50406 2.72083 3.78878 2.77817C4.0735 2.8355 4.33663 2.98357 4.5455 3.204V0.75C4.5455 0.551088 4.47366 0.360322 4.3458 0.21967C4.21793 0.0790176 4.04451 0 3.86367 0H1.13637C0.8351 0.000396964 0.546268 0.13222 0.333235 0.366555C0.120202 0.600889 0.00036088 0.918601 0 1.25V4.75C0.00036088 5.0814 0.120202 5.39911 0.333235 5.63345C0.546268 5.86778 0.8351 5.9996 1.13637 6H3.52276C3.13096 6 2.75521 5.82879 2.47816 5.52405C2.20112 5.2193 2.04547 4.80598 2.04547 4.375ZM1.13637 1.75C1.13637 1.6837 1.16032 1.62011 1.20294 1.57322C1.24556 1.52634 1.30337 1.5 1.36365 1.5H3.18185C3.24213 1.5 3.29993 1.52634 3.34256 1.57322C3.38518 1.62011 3.40912 1.6837 3.40912 1.75C3.40912 1.8163 3.38518 1.87989 3.34256 1.92678C3.29993 1.97366 3.24213 2 3.18185 2H1.36365C1.30337 2 1.24556 1.97366 1.20294 1.92678C1.16032 1.87989 1.13637 1.8163 1.13637 1.75ZM4.93346 5.92675C4.89084 5.97362 4.83304 5.99995 4.77277 5.99995C4.71251 5.99995 4.65471 5.97362 4.61209 5.92675L4.06504 5.325C3.90303 5.43874 3.71495 5.49944 3.52276 5.5C3.32048 5.5 3.12275 5.43402 2.95456 5.3104C2.78637 5.18679 2.65528 5.01109 2.57788 4.80552C2.50047 4.59995 2.48021 4.37375 2.51968 4.15552C2.55914 3.93729 2.65654 3.73684 2.79958 3.5795C2.94261 3.42217 3.12484 3.31502 3.32324 3.27162C3.52163 3.22821 3.72727 3.25049 3.91415 3.33564C4.10103 3.42078 4.26076 3.56498 4.37314 3.74998C4.48552 3.93499 4.5455 4.1525 4.5455 4.375C4.54499 4.58641 4.48981 4.79329 4.38641 4.9715L4.93346 5.57325C4.97606 5.62013 5 5.68371 5 5.75C5 5.81629 4.97606 5.87987 4.93346 5.92675Z" fill="white"/></svg>
+        </button>
+    </div>
 </div>
 <?php endforeach; ?>
 
@@ -135,10 +148,27 @@ $conn->close();
     }
 
     // Toggle flashcards
-    var pholders = document.querySelectorAll('.pholder');
-    pholders.forEach(function(pholder) {
-        pholder.addEventListener('click', function() {
-            pholder.classList.toggle('pshowmore');
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.pholder').forEach(function(pholder) {
+            pholder.addEventListener('click', function(event) {
+                if (!event.target.closest('.nav') && !event.target.closest('.dictionarylistpopup')) {
+                    pholder.classList.toggle('pshowmore');
+                }
+            });
+        });
+    });
+
+    // Event listener for dictionary popup toggle
+    var dictionaryPopupButtons = document.querySelectorAll('.dictionarypopup');
+    dictionaryPopupButtons.forEach(function(button) {
+        button.addEventListener('click', function(event) {
+            var holder = event.target.closest('.pholder');
+            if (holder) {
+                var popup = holder.querySelector('.dictionarylistpopup');
+                if (popup) {
+                    popup.classList.toggle('showdictionarylistpopup');
+                }
+            }
         });
     });
 </script>
