@@ -18,8 +18,8 @@ $table = $access_code;
 // Set the filename
 $filename = "export_" . $table . "_flasher_export.csv";
 
-// Query to fetch data from the table
-$query = "SELECT * FROM $table";
+// Query to fetch data from the table, excluding the 'id' column
+$query = "SELECT content, hint, status FROM $table";
 $result = $conn->query($query);
 
 // Check if query execution was successful
@@ -30,11 +30,8 @@ if ($result) {
     // Set UTF-8 encoding for the CSV file
     fprintf($output, chr(0xEF).chr(0xBB).chr(0xBF));
 
-    // Fetch column names and write them to the CSV file
-    $columns = [];
-    while ($field = $result->fetch_field()) {
-        $columns[] = $field->name;
-    }
+    // Write column names to the CSV file
+    $columns = ['content', 'hint', 'status'];
     fputcsv($output, $columns);
 
     // Fetch and write data rows to the CSV file
