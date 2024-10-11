@@ -2,6 +2,8 @@
 
 A simple flashcards website to enhance your learning experience
 
+![Cover Image](https://rezasadid.com/projects/flasher/cover.jpg)
+
 ## About The Project
 
 Flasher is a simple and modern flashcards website designed to aid in learning and memorizing new English words. It provides users with the ability to view, edit, and categorize flashcards, as well as dynamically retrieve definitions from online dictionaries with a single click.
