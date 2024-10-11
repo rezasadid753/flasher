@@ -2,13 +2,9 @@
 
 A simple flashcards website to enhance your learning experience
 
-[View Demo](https://rsdn.ir/g-fsh) · [Report an Issue or Request a Feature](https://github.com/rezasadid753/flasher/issues) · [Collaborate](https://github.com/rezasadid753/flasher/pulls)
-
 ## About The Project
 
 Flasher is a simple and modern flashcards website designed to aid in learning and memorizing new English words. It provides users with the ability to view, edit, and categorize flashcards, as well as dynamically retrieve definitions from online dictionaries with a single click.
-
-![Cover Image](https://rezasadid.com/projects/flasher/cover.jpg)
 
 ### Built With
 
