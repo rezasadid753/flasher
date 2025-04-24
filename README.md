@@ -1,43 +1,112 @@
-# Flasher
+# 🧠 Flasher – Smart Flashcards for Language Learning
 
-A simple flashcards website to enhance your learning experience
+A clean and modern flashcard web app to help you **learn, review, and remember** English vocabulary — faster and smarter.
 
-![Cover Image](https://rezasadid.com/projects/flasher/cover.jpg)
+## 🚀 About
 
-## About The Project
+Flasher is built to make vocabulary learning intuitive and frictionless.
 
-Flasher is a simple and modern flashcards website designed to aid in learning and memorizing new English words. It provides users with the ability to view, edit, and categorize flashcards, as well as dynamically retrieve definitions from online dictionaries with a single click.
+You can create, edit, and organize flashcards with ease — and instantly pull definitions from online sources. It’s responsive, fast, and built with simplicity in mind. Whether you’re a student, language learner, or just love new words — **Flasher is your digital memory aid.**
 
-### Built With
+---
 
-Flasher is built using a combination of frontend and backend technologies:
+## 🛠️ Features
 
-* Frontend: HTML, CSS, JavaScript
-* Backend: PHP
-* Database: MySQL
+- ✏️ Add and edit flashcards in a few clicks  
+- 📂 Organize by category  
+- 🌐 Auto-fetch definitions (soon!)  
+- 📱 Fully responsive design — mobile & desktop friendly  
+- 📤 Export/import flashcards via CSV  
+- 🔒 Simple login system (demo-ready)
 
-## Getting Started
+---
 
-To get started with Flasher, follow these steps:
+## ⚙️ Tech Stack
 
-1. Clone the repository to your local machine.
-2. Update the db_connection.php file with your own database information.
-3. Update the db_connection.php file with your own database information. This file is located in the project directory.
+- **Frontend:** HTML, CSS, JavaScript  
+- **Backend:** PHP  
+- **Database:** MySQL  
 
-## Contributing
+---
 
-Contributions are pivotal to the growth of our project. Your input fuels innovation and enhances the user experience for everyone. Whether it's a bug fix, feature suggestion, or enhancement, your efforts are highly valued. Feel free to fork the repository, create a new branch, and share your ideas. If you have any suggestions to improve the project, don't hesitate to open an issue and tag it as "enhancement". Your contributions will be warmly welcomed, and together, we can make this project even better. Thank you for your support!
+## 📦 Getting Started
 
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/YourFeature`)
-3. Commit your Changes (`git commit -m 'Add some YourFeature'`)
-4. Push to the Branch (`git push origin feature/YourFeature`)
-5. Open a Pull Request
+1. **Clone the repo:**
+   ```bash
+   git clone https://github.com/rezasadid753/flasher.git
+   cd flasher
+   ```
 
-## License
+2. **Configure the database:**
+   - Open `db_connection.php`
+   - Enter your DB credentials:
+     ```php
+     $servername = "localhost";
+     $username = "your_username";
+     $password = "your_password";
+     $dbname = "your_database";
+     ```
 
-Flasher is licensed under the MIT License. See the `LICENSE` file for details.
+3. **Import the database:**
+   - Use the included `flasher_database_backup.sql` file to set up the schema
 
-## Contact
+4. **Launch it in the browser:**
+   - Access locally at: `http://localhost/flasher`
+   - Or upload to your server
 
-For any inquiries or support, feel free to contact via email at <contact@rezasadid.com> or <rezasadid753@gmail.com>.
+---
+
+## 📁 Project Structure
+
+```bash
+flasher/
+├── about.php
+├── create_flashcard.php
+├── create_flashcard_process.php
+├── db_connection.php
+├── delete_all_flashcards.php
+├── edit_flashcard.php
+├── export_csv.php
+├── flasher_database_backup.sql
+├── footer.php
+├── header.php
+├── favicon.svg
+├── icon192.png
+├── icon512.png
+├── import_csv.php
+├── index.php
+├── list.php
+├── login.php
+├── login_process.php
+├── manifest.json
+├── offline.php
+├── play.php
+├── register.php
+├── register_process.php
+├── service-worker.js
+└── style.css
+```
+
+---
+
+## 🧬 Roadmap
+
+- ✅ Basic flashcard creation, editing, deleting
+- ✅ Responsive layout
+- ⏳ **Auto-fetch definitions** from dictionary APIs  
+- ⏳ **Dark mode & modern redesign**  
+- ⏳ **Progress tracker + streak system**  
+- ⏳ **Friend leaderboard & social flashcard stats**
+
+---
+
+## 🤝 Contributing
+
+Want to help improve Flasher?  
+Bug reports, feature suggestions, or PRs are always welcome!
+
+---
+
+## 📜 License
+
+This project is open-source under the MIT License.
